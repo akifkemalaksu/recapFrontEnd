@@ -1,0 +1,24 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Brand</th>
+      <th scope="col">Color</th>
+      <th scope="col">Description</th>
+      <th scope="col">Model Year</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Rent Date</th>
+      <th scope="col">Return Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rental of rentals">
+      <td>{{rental.brandName}}</td>
+      <td>{{rental.colorName}}</td>
+      <td>{{rental.description}}</td>
+      <td>{{rental.modelYear}}</td>
+      <td>{{rental.firstName}} {{rental.lastName}}</td>
+      <td>{{rental.rentDate}}</td>
+      <td>{{rental.returnDate}}</td>
+    </tr>
+  </tbody>
+</table>
