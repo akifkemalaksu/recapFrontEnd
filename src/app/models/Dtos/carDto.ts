@@ -1,4 +1,5 @@
 export interface CarDto {
+  carId: number;
   brandName: string;
   colorName: string;
   description: string;

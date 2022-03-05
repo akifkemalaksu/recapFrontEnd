@@ -1,0 +1,7 @@
+<div class="input-group">
+  <span class="input-group-text" id="inputGroup-brands" aria-describedby="inputGroup-brands">Brands</span>
+  <select class="form-control form-select form-select-lg" (change)="onChange($event)">
+    <option value="">All</option>
+    <option *ngFor="let brand of brands" [selected]="brand.id == activeOption" value="{{brand.id}}">{{brand.name}}</option>
+  </select>
+</div>

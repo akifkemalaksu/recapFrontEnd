@@ -1,20 +1,45 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Brand Name</th>
-      <th scope="col">Color Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Model Year</th>
-      <th scope="col">DailyPrice</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of cars">
-      <td>{{car.brandName}}</td>
-      <td>{{car.colorName}}</td>
-      <td>{{car.description}}</td>
-      <td>{{car.modelYear}}</td>
-      <td>{{car.dailyPrice}} $</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <br>
+  <div class="col-sm-12">
+    <hr>
+  </div>
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-6">
+        <app-brand-filter></app-brand-filter>
+      </div>
+      <div class="col-sm-6">
+        <app-color-filter></app-color-filter>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="col-sm-12">
+    <hr>
+  </div>
+  <br>
+  <div class="col-sm-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Brand Name</th>
+          <th scope="col">Color Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Model Year</th>
+          <th scope="col">DailyPrice</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td>{{car.brandName}}</td>
+          <td>{{car.colorName}}</td>
+          <td>{{car.description}}</td>
+          <td>{{car.modelYear}}</td>
+          <td>{{car.dailyPrice}} $</td>
+          <td> <a type="button" class="btn btn-outline-info" routerLink="/car-detail/{{car.carId}}"> To Detail </a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
