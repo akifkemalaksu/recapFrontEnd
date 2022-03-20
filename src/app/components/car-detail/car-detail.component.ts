@@ -2,11 +2,9 @@ import { CarService } from './../../services/car-services/car.service';
 import { CarDto } from './../../models/Dtos/carDto';
 import { environment } from './../../../environments/environment';
 import { CarDetailService } from './../../services/car-services/car-detail.service';
-import { CarImage } from './../../models/car-image';
-import { Component, OnInit } from '@angular/core';
+import { CarImage } from 'src/app/models/carImage';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {formatDate} from '@angular/common';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-car-detail',
@@ -15,9 +13,11 @@ import * as moment from 'moment';
 })
 export class CarDetailComponent implements OnInit {
   images: CarImage[] = [];
-  carDetail:CarDto = {} as CarDto;
+  carDetail: CarDto = {} as CarDto;
 
-  constructor(private carDetailService: CarDetailService,private carService:CarService,private activatedRoute:ActivatedRoute) { }
+  constructor(private carDetailService: CarDetailService,
+    private carService: CarService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -28,7 +28,7 @@ export class CarDetailComponent implements OnInit {
     });
   }
 
-  GetCarDetail(carId:number){
+  GetCarDetail(carId: number) {
     this.carService.getCarWithDetails(carId).subscribe(response => {
       this.carDetail = response.data;
     });
@@ -41,9 +41,5 @@ export class CarDetailComponent implements OnInit {
         return image;
       });
     });
-  }
-
-  FormatDate(date:Date){
-    return moment(date).format("DD.MM.YYYY hh:mm:ss");
   }
 }

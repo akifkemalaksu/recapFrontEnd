@@ -1,0 +1,17 @@
+@media only screen and (min-width:600px) {
+    img {
+        transition: transform 0.25s ease;
+    }
+    img:hover {
+        -webkit-transform: scale(2.0);
+        /* or some other value */
+        transform: scale(2.0);
+        z-index: 9;
+    }
+}
+
+.car-rent-div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

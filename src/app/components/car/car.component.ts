@@ -1,5 +1,5 @@
 import { CarService } from './../../services/car-services/car.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CarDto } from './../../models/Dtos/carDto';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,14 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarComponent implements OnInit {
   cars: CarDto[] = [];
+  search: string = "";
 
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      let brandId: number = params["brandId"] ?? null;
-      let colorId: number = params["colorId"] ?? null;
-      this.getCarsWithDetailsWithFilters(brandId,colorId);
+    this.activatedRoute.queryParams.subscribe(params => {
+      let brandId = params["brandId"] ?? "";
+      let colorId = params["colorId"] ?? "";
+      this.getCarsWithDetailsWithFilters(brandId, colorId);
     });
   }
 

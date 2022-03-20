@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class BrandFilterComponent implements OnInit {
   brands: Brand[] = [];
-  activeOption?:number;
+  activeOption?: number;
   constructor(private brandService: BrandService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,12 +23,22 @@ export class BrandFilterComponent implements OnInit {
   }
 
   async onChange(e: any) {
-    let value = e.target.value ?? '';
-    this.activeOption = value;
-    let colorId: string = '';
-    await this.activatedRoute.params.subscribe(params => {
-      colorId = params["colorId"] ?? '';
+    let queryParams: any = {};
+
+    let brandId = e.target.value;
+    if (brandId) {
+      queryParams["brandId"] = brandId;
+    }
+    this.activeOption = brandId;
+
+    await this.activatedRoute.queryParams.subscribe(params => {
+      if (params["colorId"]) {
+        queryParams["colorId"] = params["colorId"];
+      }
     });
-    this.router.navigate(['cars', value, colorId]);
+
+    this.router.navigate(['/cars'], {
+      queryParams: queryParams
+    });
   }
 }

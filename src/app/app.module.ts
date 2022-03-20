@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -15,6 +18,14 @@ import { RentalComponent } from './components/rental/rental.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { BrandFilterComponent } from './components/brand-filter/brand-filter.component';
 import { ColorFilterComponent } from './components/color-filter/color-filter.component';
+import { CarRentEditorComponent } from './components/car-rent-editor/car-rent-editor.component';
+
+import { CarSearchPipe } from './pipes/car-search.pipe';
+
+import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPopperjsModule} from 'ngx-popperjs';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +40,9 @@ import { ColorFilterComponent } from './components/color-filter/color-filter.com
     CarDetailComponent,
     BrandFilterComponent,
     ColorFilterComponent,
+    CarSearchPipe,
+    CarRentEditorComponent,
+    PaymentComponent,
 
   ],
   imports: [
@@ -36,6 +50,12 @@ import { ColorFilterComponent } from './components/color-filter/color-filter.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgbModule,
+    NgxPopperjsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
