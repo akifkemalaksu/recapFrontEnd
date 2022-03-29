@@ -1,14 +1,28 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Brand Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let brand of brands">
-      <td>{{brand.id}}</td>
-      <td>{{brand.name}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row mt-3">
+  <div class="col-sm-12">
+    <button class="btn btn-primary float-end" routerLink="/brands/new">New Brand</button>
+  </div>
+  <div class="col-sm-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Brand Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let brand of brands">
+          <td>{{brand.id}}</td>
+          <td>{{brand.name}}</td>
+          <td>
+            <div class="btn-group float-end" role="group">
+              <button type="button" class="btn btn-warning" routerLink="/brands/edit/{{brand.id}}">Edit</button>
+              <button type="button" class="btn btn-danger" (click)="delete(brand)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

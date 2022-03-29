@@ -1,8 +1,0 @@
-<div class="input-group">
-  <span class="input-group-text" id="inputGroup-colors">Colors</span>
-  <select class="form-control form-select form-select-lg"
-    aria-describedby="inputGroup-colors" (change)="onChange($event)">
-    <option value="">All</option>
-    <option *ngFor="let color of colors" [selected]="color.id == activeOption" value="{{color.id}}">{{color.name}}</option>
-  </select>
-</div>

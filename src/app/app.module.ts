@@ -16,16 +16,21 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { CarComponent } from './components/car/car.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { BrandFilterComponent } from './components/brand-filter/brand-filter.component';
-import { ColorFilterComponent } from './components/color-filter/color-filter.component';
 import { CarRentEditorComponent } from './components/car-rent-editor/car-rent-editor.component';
 
 import { CarSearchPipe } from './pipes/car-search.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgxPopperjsModule} from 'ngx-popperjs';
+import { NgxPopperjsModule } from 'ngx-popperjs';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { AddBrandComponent } from './components/add-brand/add-brand.component';
+import { EditBrandComponent } from './components/edit-brand/edit-brand.component';
+import { AddColorComponent } from './components/add-color/add-color.component';
+import { EditColorComponent } from './components/edit-color/edit-color.component';
+import { AddCarComponent } from './components/add-car/add-car.component';
+import { EditCarComponent } from './components/edit-car/edit-car.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +43,16 @@ import { PaymentComponent } from './components/payment/payment.component';
     CarComponent,
     RentalComponent,
     CarDetailComponent,
-    BrandFilterComponent,
-    ColorFilterComponent,
     CarSearchPipe,
     CarRentEditorComponent,
     PaymentComponent,
-
+    CarFilterComponent,
+    AddBrandComponent,
+    EditBrandComponent,
+    AddColorComponent,
+    EditColorComponent,
+    AddCarComponent,
+    EditCarComponent,
   ],
   imports: [
     CommonModule,

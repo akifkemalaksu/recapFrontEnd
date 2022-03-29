@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="input-group">
+      <span class="input-group-text" id="inputGroup-brands" aria-describedby="inputGroup-brands">Brands</span>
+      <select class="form-control form-select form-select-lg" (change)="brandOnChange($event)">
+        <option value="">All</option>
+        <option *ngFor="let brand of brands" [selected]="brand.id == activeBrand" value="{{brand.id}}">{{brand.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="input-group">
+      <span class="input-group-text" id="inputGroup-colors">Colors</span>
+      <select class="form-control form-select form-select-lg" aria-describedby="inputGroup-colors"
+        (change)="colorOnChange($event)">
+        <option value="">All</option>
+        <option *ngFor="let color of colors" [selected]="color.id == activeColor" value="{{color.id}}">{{color.name}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

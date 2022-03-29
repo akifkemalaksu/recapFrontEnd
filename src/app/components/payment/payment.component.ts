@@ -65,7 +65,7 @@ export class PaymentComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.payingForm.status === "VALID") {
+    if (this.payingForm.valid) {
       let rentalRequestModel = {} as RentalRequestModel;
       rentalRequestModel.carId = this.car.carId;
       rentalRequestModel.fromDate = this.formatter.format(this.fromDate);

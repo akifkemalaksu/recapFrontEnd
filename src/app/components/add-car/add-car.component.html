@@ -1,0 +1,53 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-start">
+      New Car
+    </div>
+    <div class="float-end">
+      <button type="button" routerLink="/cars" class="btn btn-outline-danger">
+        <i class="bi bi-backspace"></i>
+        Back to List
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="addCarForm">
+      <div class="mb-3">
+        <label for="brandId" class="form-label">Brand</label>
+        <select class="form-select" id="brandId" formControlName="brandId" aria-label="Select a brand">
+          <option value="{{brand.id}}" *ngFor="let brand of brands">{{brand.name}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="colorId" class="form-label">Color</label>
+        <select class="form-select" id="colorId" formControlName="colorId" aria-label="Select a color">
+          <option value="{{color.id}}" *ngFor="let color of colors">{{color.name}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="modelYear" class="form-label">Model Year</label>
+        <input type="text" class="form-control" id="modelYear" formControlName="modelYear">
+      </div>
+      <div class="mb-3">
+        <div class="alert alert-danger" role="alert" *ngIf="addCarForm.controls['dailyPrice'].errors && addCarForm.controls['dailyPrice'].errors!['decimal']">
+          {{addCarForm.controls['dailyPrice'].errors!['decimal'].message}}
+        </div>
+        <label for="dailyPrice" class="form-label">Daily Price</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="dailyPrice" formControlName="dailyPrice"
+            aria-describedby="daily-price-describer">
+          <span class="input-group-text" id="daily-price-describer">$</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="float-end">
+      <button class="btn btn-success" (click)="save()"> Save </button>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
+import { ResponseModel } from './../models/ResponseModels/responseModel';
+import { Color } from './../models/color';
+import { ResponseDataModel } from './../models/ResponseModels/responseDataModel';
 import { environment } from './../../environments/environment';
-import { ColorResponseModel } from './../models/ResponseModels/colorResponseModel';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,11 +10,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ColorService {
-  getAllColorUrl = "colors";
+  colorUrl = "colors";
 
   constructor(private httpClient: HttpClient) { }
 
-  getColors():Observable<ColorResponseModel>{
-    return this.httpClient.get<ColorResponseModel>(`${environment.apiUrl}${this.getAllColorUrl}`);
+  getColor(id: number): Observable<ResponseDataModel<Color>> {
+    return this.httpClient.get<ResponseDataModel<Color>>(`${environment.apiUrl}${this.colorUrl}/${id}`);
+  }
+
+  getColors(): Observable<ResponseDataModel<Color[]>> {
+    return this.httpClient.get<ResponseDataModel<Color[]>>(`${environment.apiUrl}${this.colorUrl}`);
+  }
+
+  deleteColor(colorId: number): Observable<ResponseModel> {
+    return this.httpClient.delete<ResponseModel>(`${environment.apiUrl}${this.colorUrl}/${colorId}`);
+  }
+
+  addColor(color: Color): Observable<ResponseDataModel<Color>> {
+    return this.httpClient.post<ResponseDataModel<Color>>(`${environment.apiUrl}${this.colorUrl}`, color);
+  }
+
+  editColor(color: Color): Observable<ResponseDataModel<Color>> {
+    return this.httpClient.put<ResponseDataModel<Color>>(`${environment.apiUrl}${this.colorUrl}`, color);
   }
 }

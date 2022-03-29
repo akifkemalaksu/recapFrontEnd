@@ -1,13 +1,9 @@
 <div class="row mt-2">
   <div class="col-sm-12">
-    <div class="row">
-      <div class="col-sm-6">
-        <app-brand-filter></app-brand-filter>
-      </div>
-      <div class="col-sm-6">
-        <app-color-filter></app-color-filter>
-      </div>
-    </div>
+    <button class="btn btn-primary float-end" routerLink="/cars/new">New Car</button>
+  </div>
+  <div class="col-sm-12 mt-2">
+    <app-car-filter></app-car-filter>
   </div>
   <div class="col-sm-12">
     <hr>
@@ -46,7 +42,13 @@
           <td>{{car.description}}</td>
           <td>{{car.modelYear}}</td>
           <td>{{car.dailyPrice}} $</td>
-          <td> <a type="button" class="btn btn-outline-info" routerLink="/car-detail/{{car.carId}}"> To Detail </a>
+          <td>
+            <div class="btn-group float-end" role="group">
+              <button type="button" class="btn btn-outline-info" routerLink="/car-detail/{{car.carId}}">To
+                Detail</button>
+              <button type="button" class="btn btn-outline-warning" routerLink="/cars/edit/{{car.carId}}">Edit</button>
+              <button type="button" class="btn btn-outline-danger" (click)="delete(car)">Delete</button>
+            </div>
           </td>
         </tr>
       </tbody>

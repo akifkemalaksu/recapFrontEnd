@@ -1,0 +1,26 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-start">
+      Edit Brand - {{brand?.name}}
+    </div>
+    <div class="float-end">
+      <button type="button" routerLink="/brands" class="btn btn-outline-danger">
+        <i class="bi bi-backspace"></i>
+        Back to List
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="editBrandForm" *ngIf="editBrandForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Brand Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name" placeholder="Brand name">
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <div class="float-end">
+      <button class="btn btn-success" (click)="save()"> Save </button>
+    </div>
+  </div>
+</div>
